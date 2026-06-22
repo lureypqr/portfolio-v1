@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Ankit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <style>
+    .page-hero {
+      padding: 120px 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    /* LEFT — contact info */
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .contact-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .contact-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+    .contact-card-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .contact-card-body {}
+    .contact-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .contact-card-value {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    .contact-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 1rem 1.25rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent2);
+      border-radius: var(--radius-md);
+    }
+
+    /* RIGHT — form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+    .form-group textarea { min-height: 140px; }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .form-submit .btn-primary {
+      font-size: 0.88rem;
+      padding: 12px 28px;
+      border: none;
+      cursor: pointer;
+    }
+    .form-submit .btn-primary:hover { opacity: 0.85; }
+
+    .form-status {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--green);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .form-status.visible { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><span class="dot"></span><a href="../index.html">Ankit</a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">~/home</a></li>
+      <li><a href="about.html">~/about</a></li>
+      <li><a href="projects.html">~/projects</a></li>
+      <li><a href="contact.html">~/contact</a></li>
+    </ul>
+    <div class="nav-cv"><a href="..//Ankit-Dawadi-Resume.pdf" download>Download CV</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="../index.html">~/home</a>
+    <a href="about.html">~/about</a>
+    <a href="projects.html">~/projects</a>
+    <a href="contact.html">~/contact</a>
+    <a href="..//Ankit-Dawadi-Resume.pdf" class="mobile-cv" download>Download CV</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="section-eyebrow">Contact</div>
+    <h1 class="section-title">Get in touch</h1>
+    <p class="section-desc">
+      Open to research collaborations, data science roles, internships,
+      and MSc opportunities for Fall 2027.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="contact-grid">
+
+    <!-- LEFT -->
+    <div class="contact-info">
+
+      <a href="mailto:dawadi030@gmail.com" class="contact-card">
+        <span class="contact-card-icon">✉</span>
+        <div class="contact-card-body">
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">dawadi030@gmail.com</div>
+        </div>
+      </a>
+
+      <a href="https://github.com/lureypqr" class="contact-card" target="_blank">
+        <span class="contact-card-icon">⌥</span>
+        <div class="contact-card-body">
+          <div class="contact-card-label">GitHub</div>
+          <div class="contact-card-value">github.com/lureypqr</div>
+        </div>
+      </a>
+
+      <a href="https://linkedin.com/in/ankitdawadi16" class="contact-card" target="_blank">
+        <span class="contact-card-icon">◈</span>
+        <div class="contact-card-body">
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">linkedin.com/in/ankitdawadi16</div>
+        </div>
+      </a>
+
+      <div class="contact-note">
+        I'm based in <strong style="color:var(--text)">Kathmandu, Nepal</strong> (NPT, UTC+5:45).
+        I try to respond within 48 hours. For urgent matters, email works best.
+      </div>
+
+    </div>
+
+    <!-- RIGHT — form -->
+    <div>
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject">
+            <option value="" disabled selected>Select a topic</option>
+            <option>Research Collaboration</option>
+            <option>Data Science Role</option>
+            <option>Just saying hello</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me what's on your mind..." required></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">Send Message →</button>
+          <span class="form-status" id="form-status">✓ Message sent!</span>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Ankit</div>
+        <p>Physics &amp; Statistics student focused on data science and ML research.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn</a>
+          <a href="mailto:your@email.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="../public/Ankit-CV.pdf" download>Download CV</a></li>
+          <li><a href="https://github.com/YOUR_USERNAME" target="_blank">GitHub</a></li>
+          <li><a href="mailto:your@email.com">Email me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ankit. All rights reserved.</span>
+      <span>Built with HTML + CSS · Kathmandu, Nepal</span>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+  <script>
+    // Simple form feedback (wire up to a backend / Formspree later)
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const status = document.getElementById('form-status');
+      status.classList.add('visible');
+      setTimeout(() => status.classList.remove('visible'), 4000);
+      this.reset();
+    });
+  </script>
+</body>
+</html>

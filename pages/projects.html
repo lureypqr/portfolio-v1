@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Ankit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/projects.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <style>
+    .page-hero {
+      padding: 120px 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .projects-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    /* Filter tabs */
+    .filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(94,234,212,0.06);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><span class="dot"></span><a href="../index.html">Ankit</a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">~/home</a></li>
+      <li><a href="about.html">~/about</a></li>
+      <li><a href="projects.html">~/projects</a></li>
+      <li><a href="contact.html">~/contact</a></li>
+    </ul>
+    <div class="nav-cv"><a href="../public/Ankit-CV.pdf" download>Download CV</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="../index.html">~/home</a>
+    <a href="about.html">~/about</a>
+    <a href="projects.html">~/projects</a>
+    <a href="contact.html">~/contact</a>
+    <a href="../public/Ankit-CV.pdf" class="mobile-cv" download>Download CV</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="section-eyebrow">Work</div>
+    <h1 class="section-title">All Projects</h1>
+    <p class="section-desc">
+      Hands-on work across physics and data  —
+      built while learning, shared openly.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="projects-page" style="padding-top: 3rem;">
+
+    <!-- <div class="filter-tabs">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Data Science</button>
+      <button class="filter-btn">Physics</button>
+      <button class="filter-btn">Finance</button>
+      <button class="filter-btn">Web</button>
+    </div> -->
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <span class="project-badge badge-fyp">Portfolio</span>
+        <div class="project-title">Personal Portfolio Website</div>
+        <p class="project-desc">
+          A responsive personal portfolio built with Next.js, TypeScript, Tailwind CSS,
+          and Framer Motion. Showcases academic work, research, and projects with
+          smooth animations and clean design.
+        </p>
+        <div class="project-tags">
+          <span class="tag">Next.js</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">Tailwind</span>
+          <span class="tag">Framer Motion</span>
+        </div>
+        <a href="https://github.com/lureypqr/portfolio-v1" class="project-link" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-lab">Lab</span>
+        <div class="project-title">Coming Soon.....</div>
+        <p class="project-desc">
+          lorem2024 ipsum dolor sit amet consectetur adipisicing elit. Saepe, impedit non. Iusto, exercitationem doloremque! Ad quibusdam odit quas obcaecati laudantium?
+        </p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Finance</span>
+        </div>
+        <a href="https://github.com/lureypqr/" class="project-link" target="_blank">
+          View on GitHub →
+        </a>
+      </div>
+
+      <div class="project-card">
+        <span class="project-badge badge-open">Academic</span>
+        <div class="project-title">Coming Soon.....</div>
+        <p class="project-desc">
+          lorem2024 ipsum dolor sit amet consectetur adipisicing elit. Saepe, impedit non. Iusto, exercitationem doloremque! Ad quibusdam odit quas obcaecati laudantium?
+        </p>
+        <div class="project-tags">
+          <span class="tag">LaTeX</span>
+          <span class="tag">Git</span>
+          <span class="tag">Error Analysis</span>
+        </div>
+        <a href="https://github.com/lureypqr" class="project-link" target="_blank">
+          View on GitHub →
+        </a>
+
+      </div>
+
+      <!-- Add more project cards here as you build them -->
+      
+    </div>
+    <br> <center><p> <a href="https://github.com/lureypqr" target="_blank"> <i>More on GitHub</i></a> </p> </center>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">Ankit</div>
+        <p>Physics &amp; Statistics student focused on data science and ML research.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/lureypqr" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/ankitdawadi16" target="_blank">LinkedIn</a>
+          <a href="mailto:dawadi030@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="..//Ankit-Dawadi-Resume.pdf" download>Download CV</a></li>
+          <li><a href="https://github.com/lureypqr" target="_blank">GitHub</a></li>
+          <li><a href="mailto:dawadi030@gmail.com">Email me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ankit. All rights reserved.</span>
+      <span>Built with HTML + CSS · Kathmandu, Nepal</span>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Ankit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/variables.css" />
+  <link rel="stylesheet" href="../css/nav.css" />
+  <link rel="stylesheet" href="../css/skills.css" />
+  <link rel="stylesheet" href="../css/footer.css" />
+  <style>
+    .page-hero {
+      padding: 120px 2rem 4rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-sidebar {}
+    .about-photo-wrap {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      padding: 4px;
+      box-shadow: 0 0 30px rgba(94,234,212,0.15);
+      margin-bottom: 1.5rem;
+    }
+    .about-photo-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: var(--bg3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+    }
+    .about-photo-inner img {
+      width: 100%; height: 100%;
+      object-fit: cover; border-radius: 50%;
+    }
+    .sidebar-info { display: flex; flex-direction: column; gap: 0.75rem; }
+    .info-row { display: flex; flex-direction: column; gap: 2px; }
+    .info-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .info-value { font-size: 0.85rem; color: var(--text); }
+    .info-value a { color: var(--accent); }
+    .info-value a:hover { text-decoration: underline; }
+
+    .about-content {}
+    .about-content h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+    .about-content p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .about-content p strong { color: var(--text); }
+
+    /* Education timeline */
+    .timeline { display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.5rem; }
+    .tl-item {
+      display: flex; gap: 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      position: relative;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 2px;
+      border-radius: 2px 0 0 2px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+    }
+    .tl-year {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 2px;
+      min-width: 60px;
+    }
+    .tl-body {}
+    .tl-title { font-size: 0.92rem; font-weight: 600; margin-bottom: 2px; }
+    .tl-sub   { font-size: 0.8rem; color: var(--muted); }
+
+    /* Interests chips */
+    .interest-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.5rem; }
+    .interest-chip {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--muted);
+      background: var(--bg2);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .interest-chip:hover { color: var(--accent2); border-color: var(--accent2); }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-photo-wrap { width: 140px; height: 140px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><span class="dot"></span><a href="../index.html">Ankit</a></div>
+    <ul class="nav-links">
+      <li><a href="../index.html">~/home</a></li>
+      <li><a href="about.html">~/about</a></li>
+      <li><a href="projects.html">~/projects</a></li>
+      <li><a href="contact.html">~/contact</a></li>
+    </ul>
+    <div class="nav-cv"><a href="../Ankit-Dawadi-Resume.pdf" download>Download CV</a></div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Navigation menu">
+    <a href="../index.html">~/home</a>
+    <a href="about.html">~/about</a>
+    <a href="projects.html">~/projects</a>
+    <a href="contact.html">~/contact</a>
+    <a href="../public/Ankit-CV.pdf" class="mobile-cv" download>Download CV</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="section-eyebrow">About</div>
+    <h1 class="section-title">A bit about me</h1>
+    <p class="section-desc">
+      Physics student, data enthusiast, and aspiring researcher based in Kathmandu.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="about-grid">
+
+    <!-- SIDEBAR -->
+    <div class="about-sidebar">
+      <div class="about-photo-wrap">
+        <div class="about-photo-inner">
+          <!-- Replace with: <img src="../public/photo.jpg" alt="Ankit" /> -->
+          <img src="../photo.jpg" alt="Ankit" />
+        </div>
+      </div>
+
+      <div class="sidebar-info">
+        <div class="info-row">
+          <span class="info-label">Name</span>
+          <span class="info-value">Ankit Dawadi</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Location</span>
+          <span class="info-value">Kathmandu, Nepal</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">University</span>
+          <span class="info-value">Tribhuvan University</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Programme</span>
+          <span class="info-value">BSc Physics &amp; Statistics (4th Year)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Roll No.</span>
+          <span class="info-value">55</span>
+        </div>
+        
+        <div class="info-row">
+          <span class="info-label">GitHub</span>
+          <span class="info-value"><a href="https://github.com/lureypqr" target="_blank">github.com/lureypqr</a></span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Email</span>
+          <span class="info-value"><a href="mailto:dawadi030@gmail.com">dawadi030@gmail.com</a></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="about-content">
+
+      <h2>Who I am</h2>
+      <p>
+        I'm a fourth-year BSc student majoring in <strong>Physics</strong> at
+        Tribhuvan University, Kathmandu. My work sits at the intersection of mathematical
+        physics and data science — I care deeply about understanding <em>why</em> things work,
+        not just running code that happens to produce results.
+      </p>
+      <p>
+       My work is centered on strengthening fundamentals in <strong>physics, mathematics, and programming</strong> through continuous study and small-scale projects. I approach problems analytically and try to build clear, reproducible solutions using computational methods. My goal is to develop the ability to connect theory with implementation and apply that skill set to meaningful problems in research or applied data science.
+      </p>
+      
+
+      <br />
+      <h2>Education</h2>
+      <div class="timeline">
+
+
+        <div class="tl-item">
+          <span class="tl-year">2010 – 2020</span>
+          <div class="tl-body">
+            <div class="tl-title">✔Secondary Education (SEE / Grade 10)</div>
+            <div class="tl-sub">Tara Secondary School · Gorkha, Nepal</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-year">2020 – 2022</span>
+          <div class="tl-body">
+            <div class="tl-title">✔Higher Secondary Education (Grade 11–12)</div>
+            <div class="tl-sub">Science Stream (Physics, Chemistry, Mathematics) <br> Siddhartha Vanasthali Collage · Kahmandu, Nepal</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <span class="tl-year">2022 – present</span>
+          <div class="tl-body">
+            <div class="tl-title">✔ Bachelor of Science (BSc)</div>
+            <div class="tl-sub">Physics, Statistics, Mathematics<br>Tribhuvan University · Kathmandu, Nepal</div>
+          </div>
+      </div>
+      
+      <br />
+      <h2>Interests &amp; Reading</h2>
+      <div class="interest-chips">
+        <span class="interest-chip">Mathematical Physics</span>
+        <span class="interest-chip">Machine Learning</span>
+        <span class="interest-chip">Bayesian Statistics</span>
+        <span class="interest-chip">Linear Algebra</span>
+        <span class="interest-chip">Quantum Mechanics</span>
+        <span class="interest-chip">Scientific Computing</span>
+        <span class="interest-chip">Actuarial Science</span>
+      </div>
+
+      <br /><br />
+      <h2>Skills</h2>
+      <p>A snapshot of tools and domains I actively work with:</p>
+      <div class="skills-grid" style="margin-top:1rem;">
+        <div class="skill-chip"><span class="dot c-teal"></span>Python</div>
+        <div class="skill-chip"><span class="dot c-teal"></span>NumPy</div>
+        <div class="skill-chip"><span class="dot c-teal"></span>Pandas</div>
+        <div class="skill-chip"><span class="dot c-indigo"></span>Statistics</div>
+        <div class="skill-chip"><span class="dot c-indigo"></span>ML / Scikit-learn</div>
+        <div class="skill-chip"><span class="dot c-yellow"></span>LaTeX</div>
+        <div class="skill-chip"><span class="dot c-green"></span>Git / GitHub</div>
+        <div class="skill-chip"><span class="dot c-green"></span>Ubuntu / Linux</div>
+        <div class="skill-chip"><span class="dot c-teal"></span>Next.js</div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">● Ankit</div>
+        <p>Physics &amp; Statistics student focused on data science and ML research.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/lureypqr" target="_blank">GitHub</a>
+          <a href="https://linkedin.com/in/ankitdawadi16" target="_blank">LinkedIn</a>
+          <a href="mailto:dawadi030@gmail.com">Email</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="..//Ankit-Dawadi-Resume.pdf" download>Download CV</a></li>
+          <li><a href="https://github.com/lureypqr" target="_blank">GitHub</a></li>
+          <li><a href="mailto:dawadi030@gmail.com">Email me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ankit. All rights reserved.</span>
+      <span>Built with HTML + CSS · Kathmandu, Nepal</span>
+    </div>
+  </footer>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>
